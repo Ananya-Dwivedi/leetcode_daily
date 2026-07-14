@@ -8,10 +8,8 @@ class MinStack(object):
 
     def push(self, value):
         self.stack.append(value)
-        if self.min_stack and value < self.min_stack[-1]:
-            self.min_stack.append(value)
-        elif self.min_stack and value> self.min_stack[-1]:
-            self.min_stack.append(self.min_stack[-1])
+        if self.min_stack:
+           self.min_stack.append(min(value, self.min_stack[-1])) 
         else:
             self.min_stack.append(value)
 
