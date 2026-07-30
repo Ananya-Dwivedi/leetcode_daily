@@ -9,7 +9,7 @@ class RecentCounter(object):
         
         self.q.append(t)
 
-        while (self.q[0]< t-3000):
+        while self.q and (self.q[0]< t-3000):
             self.q.popleft()
         
         return len(self.q)
