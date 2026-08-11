@@ -1,0 +1,27 @@
+class Solution(object):
+    def subarraySum(self, nums, k):
+  
+
+        current_sum = 0
+        answer = 0
+
+        prefix_count = {0: 1}
+
+        for num in nums:
+
+            current_sum += num
+
+            needed = current_sum - k
+
+            if needed in prefix_count:
+                answer += prefix_count[needed]
+
+            prefix_count[current_sum] = prefix_count.get(current_sum, 0) + 1
+
+        return answer
+        
+        
+
+# Synced seamlessly with LeetHub Pro
+# Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+# Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
